@@ -1,0 +1,27 @@
+allprojects{
+    apply plugin:'idea'
+    apply plugin:'java'
+    apply plugin:'maven'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    group = "kz.bmukhtar.education"
+    compileJava.options.debugOptions.debugLevel = "source,list,vars"
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
+    compileTestJava.options.encoding = "UTF-8"
+}
+
+subprojects{
+    repositories{
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies{
+
+    }
+
+
+}
