@@ -1,0 +1,42 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "mukhtars blog",
+  "scripts": {
+    "gulp_clean": "gulp clean",
+    "gulp_less": "gulp less",
+    "gulp_ser": "gulp ser",
+    "gulp_par": "gulp par",
+    "gulp_task_pug": "gulp task_pug"
+  },
+  "author": "mukhtar",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/animations": "4.4.3",
+    "@angular/cdk": "2.0.0-beta.11",
+    "@angular/common": "4.4.3",
+    "@angular/compiler": "4.4.3",
+    "@angular/core": "4.4.3",
+    "@angular/forms": "4.4.3",
+    "@angular/http": "4.4.3",
+    "@angular/material": "2.0.0-beta.11",
+    "@angular/platform-browser": "4.4.3",
+    "@angular/platform-browser-dynamic": "4.4.3",
+    "@types/node": "7.0.5",
+    "bootstrap": "3.3.7",
+    "browser-sync": "2.18.8",
+    "core-js": "2.4.1",
+    "del": "2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-less": "3.3.0",
+    "gulp-pug": "3.2.0",
+    "hammerjs": "2.0.8",
+    "node-notifier": "5.0.2",
+    "pug": "^2.0.0-rc.4",
+    "rxjs": "5.2.0",
+    "ts-loader": "2.0.1",
+    "typescript": "2.2.1",
+    "webpack": "2.2.1",
+    "zone.js": "0.8.4"
+  }
+}
