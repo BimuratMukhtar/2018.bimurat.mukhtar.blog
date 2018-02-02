@@ -1,6 +1,6 @@
 *.iml
 *.iws
-*.ipl
+*.ipr
 *.gradle
 /.idea
 **/build
