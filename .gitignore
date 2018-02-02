@@ -1,7 +1,7 @@
 *.iml
 *.iws
 *.ipl
-.gradle
+*.gradle
 /.idea
 **/build
 **/node_modules
