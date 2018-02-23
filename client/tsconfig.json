@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "outDir": "build/ts_out",
+    "target": "es5"
+  },
+  "files": [
+    "front/ts/main.ts"
+  ]
+}

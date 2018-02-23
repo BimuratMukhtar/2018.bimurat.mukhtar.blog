@@ -1,5 +1,13 @@
--
-  var list = ["Uno", "Dos", "Tres",
-          "Cuatro", "Cinco", "Seis"]
-each item in list
-  li= item
+extends _page
+
+block head
+    title Help Desk Stand
+    script window.urlPrefix = 'http://' + location.hostname + ':8080/blog/api'
+
+block body
+    blog_app
+    form(action="signed.html", method='get')
+        input(placeholder="login",name="login")
+        input(placeholder="password",name="pas", type="password")
+        input(type="submit")
+    script(src="js/main.js", type="text/javascript")

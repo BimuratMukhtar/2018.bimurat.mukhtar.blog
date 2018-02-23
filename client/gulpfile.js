@@ -1,12 +1,12 @@
-const gulp = require("gulp");
-const del = require("del");
-const less = require("gulp-less");
-const path = require("path");
+const gulp = require('gulp');
+const del = require('del');
+const less = require('gulp-less');
+const path = require('path');
 const pug = require('gulp-pug');
-const browserSync = require('browser-sync');
 const webpack = require('webpack');
 const gulpLog = require('gulplog');
 const notifier = require('node-notifier');
+const browserSync = require('browser-sync');
 
 let isWatch = true;
 
@@ -19,16 +19,30 @@ gulp.task('clean', function (){
 });
 
 gulp.task('less', function(){
-    return gulp.src("front/less/*.less").pipe(less()).pipe(gulp.dest(outDir()))
+    return gulp.src("front/less/main.less").pipe(less()).pipe(gulp.dest(path.resolve(outDir(), 'css')))
+});
+
+gulp.task('copy-less',function () {
+    return  gulp.src('front/less/*.less')
+        .pipe(gulp.dest(path.resolve(__dirname,'build','public','blog')));
+});
+gulp.task('copy-pug',function () {
+    return  gulp.src('front/pug/*.pug')
+        .pipe(gulp.dest(path.resolve(__dirname,'build','public','blog')));
 });
 
 gulp.task('pug', function(){
-    return gulp.src("front/pug/index.pug").pipe(pug()).pipe(gulp.dest(outDir()));
+    return gulp.src("front/pug/index.pug").pipe(pug({pretty:true})).on('error', console.log)
+        .pipe(gulp.dest(outDir()));
 });
 
-gulp.task("assets", gulp.parallel('less', "pug"));
+gulp.task('pug_s', function(){
+    return gulp.src("front/pug/signed.pug").pipe(pug({pretty:true})).on('error', console.log)
+        .pipe(gulp.dest(outDir()));
+});
 
 gulp.task('webpack', function (callback) {
+
     let options = {
         entry: [path.resolve('.', 'front', 'ts', 'main.ts')],
         output: {
@@ -83,19 +97,14 @@ gulp.task('webpack', function (callback) {
     });
 });
 
-gulp.task('copy', function(){
-    gulp.src([
-        "front/iconfont/**/*.*"
-    ]).pipe(gulp.dest(outDir(), 'iconfont'));
-    gulp.src([
+gulp.task('copy', function () {
+    return gulp.src([
         "node_modules/zone.js/dist/zone.min.js",
         "node_modules/core-js/client/shim.min.js"
-    ]).pipe(gulp.dest(outDir(), 'js'));
-    return gulp.src([
-        "node_modules/@angular/matetial/prebuilt-themes/indigo-pink.css",
-        "node_modules/bootstrap/dist/css/bootstrap.min.css"
-    ]).pipe(gulp.dest(outDir(), 'css'));
+    ]).pipe(gulp.dest(path.resolve(outDir(), 'js')));
 });
+
+gulp.task("assets", gulp.parallel('less', "pug", "pug_s"));
 
 gulp.task("build",  gulp.series(
     'clean', 'copy', function(callback){
@@ -105,15 +114,13 @@ gulp.task("build",  gulp.series(
 ));
 
 gulp.task('server', function (back) {
-    browserSync.init({server: path.resolve('build', 'public')});
+    browserSync.init({server: path.resolve('build', 'public', 'blog')});
     browserSync.watch('build/public/**/*.*').on('change', browserSync.reload);
     back();
 });
 
-
-
 gulp.task('start', gulp.series(
-    'clean', 'assets', function (callback) {
+    'clean', 'assets', 'copy', function (callback) {
         isWatch = true;
         callback();
     }, 'webpack', 'server',
