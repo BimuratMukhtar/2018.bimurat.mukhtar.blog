@@ -19,25 +19,16 @@ gulp.task('clean', function (){
 });
 
 gulp.task('less', function(){
-    return gulp.src("front/less/main.less").pipe(less()).pipe(gulp.dest(path.resolve(outDir(), 'css')))
+    return gulp.src("front/less/style.less").pipe(less()).pipe(gulp.dest(path.resolve(outDir(), 'css')))
 });
 
-gulp.task('copy-less',function () {
-    return  gulp.src('front/less/*.less')
-        .pipe(gulp.dest(path.resolve(__dirname,'build','public','blog')));
-});
-gulp.task('copy-pug',function () {
-    return  gulp.src('front/pug/*.pug')
-        .pipe(gulp.dest(path.resolve(__dirname,'build','public','blog')));
+gulp.task('copy-images',function () {
+    return  gulp.src('front/images/*')
+        .pipe(gulp.dest(path.resolve(__dirname,'build','public','blog','images')));
 });
 
 gulp.task('pug', function(){
-    return gulp.src("front/pug/index.pug").pipe(pug({pretty:true})).on('error', console.log)
-        .pipe(gulp.dest(outDir()));
-});
-
-gulp.task('pug_s', function(){
-    return gulp.src("front/pug/signed.pug").pipe(pug({pretty:true})).on('error', console.log)
+    return gulp.src("front/pug/*.pug").pipe(pug({pretty:true})).on('error', console.log)
         .pipe(gulp.dest(outDir()));
 });
 
@@ -104,7 +95,7 @@ gulp.task('copy', function () {
     ]).pipe(gulp.dest(path.resolve(outDir(), 'js')));
 });
 
-gulp.task("assets", gulp.parallel('less', "pug", "pug_s"));
+gulp.task("assets", gulp.parallel('copy-images', 'less', "pug"));
 
 gulp.task("build",  gulp.series(
     'clean', 'copy', function(callback){
@@ -129,11 +120,4 @@ gulp.task('start', gulp.series(
         gulp.watch('front/less/**/*.less', gulp.series('less'));
     }
 ));
-
-
-gulp.task('ser', gulp.series('clean','less','pug'));
-
-gulp.task('par', gulp.parallel('pug', 'less'));
-
-gulp.task('task_pug', gulp.series('clean', "par"));
 
