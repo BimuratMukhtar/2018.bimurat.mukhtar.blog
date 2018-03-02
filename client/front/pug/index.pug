@@ -9,44 +9,38 @@ head
     // Custom Theme files
     meta(name='viewport' content='width=device-width, initial-scale=1')
     meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
-    meta(name='keywords' content='Register Login Widget template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login Signup Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
-    script(type='application/x-javascript').
-        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
-    // Custom Theme files
+    script(src="js/shim.min.js")
+    script(src="js/zone.min.js")
     link(href='css/style.css' rel='stylesheet' type='text/css' media='all')
-    // web-fonts
     link(href='//fonts.googleapis.com/css?family=Jura:400,300,500,600' rel='stylesheet' type='text/css')
-    // //web-fonts
-h1 Blog app
-// main
-.main
-    // login-profile
-    // login-profile
-    // signin-form
-    .w3
-        .signin-form.profile
-            h3 Login
-            .login-form
-                form(action='/' method='post')
-                    input(type='text' name='logemail' placeholder='E-mail' required='')
-                    input(type='password' name='logpassword' placeholder='Password' required='')
-                    .tp
-                        input(type='submit' value='LOGIN NOW')
-    .agile
-        .signin-form.profile
-            h3 Register
-            .login-form
-                form(action='/' method='post')
-                    input(type='text' name='email' placeholder='E-mail' required='')
-                    input(type='text' name='username' placeholder='Username' required='')
-                    input(type='password' name='password' placeholder='Password' required='')
-                    input(type='password' name='passwordConf' placeholder='Confirm Password' required='')
-                    input(type='submit' value='REGISTER')
-            p
-                a(href='#')  By clicking register, I agree to your terms
-    .clear
-    // //signin-form
-.copyright
-    p
-        | &copy; 2016 Register Login Widget . All rights reserved | Design by
-        a(href='http://w3layouts.com/' target='_blank') W3layouts
+body
+    blog_app
+        script(src="js/main.js", type="text/javascript")
+    .main
+        .w3
+            .signin-form.profile
+                h3 Login
+                .login-form
+                    form(action='/' method='post')
+                        input(type='text' name='logemail' placeholder='E-mail' required='')
+                        input(type='password' name='logpassword' placeholder='Password' required='')
+                        .tp
+                            input(type='submit' value='LOGIN NOW')
+        .agile
+            .signin-form.profile
+                h3 Register
+                .login-form
+                    form(action='/' method='post')
+                        input(type='text' name='email' placeholder='E-mail' required='')
+                        input(type='text' name='username' placeholder='Username' required='')
+                        input(type='password' name='password' placeholder='Password' required='')
+                        input(type='password' name='passwordConf' placeholder='Confirm Password' required='')
+                        input(type='submit' value='REGISTER')
+                p
+                    a(href='#')  By clicking register, I agree to your terms
+        .clear
+        // //signin-form
+    .copyright
+        p
+            | &copy; 2016 Register Login Widget . All rights reserved | Design by
+            a(href='http://w3layouts.com/' target='_blank') W3layouts
