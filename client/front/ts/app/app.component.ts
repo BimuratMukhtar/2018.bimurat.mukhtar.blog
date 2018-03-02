@@ -4,7 +4,7 @@ import "rxjs/add/operator/toPromise"
 
 @Component({
     selector: "blog_app",
-    template: '<h1>Blog app</h1>'
+    template: require('./app.component.html')
 })
 export class AppComponent implements OnInit{
     private text:string;

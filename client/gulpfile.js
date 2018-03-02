@@ -49,6 +49,9 @@ gulp.task('webpack', function (callback) {
                 test: /\.ts$/,
                 include: path.resolve(__dirname, 'front', 'ts'),
                 loader: ['ts-loader'],
+            }, {
+                test: /\.(html|css)$/,
+                loader : 'raw-loader',
             }],
         },
         resolve: {
