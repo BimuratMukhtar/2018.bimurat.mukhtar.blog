@@ -1,0 +1,9 @@
+extends _page
+
+block head
+    title Help Desk Stand
+    script window.urlPrefix = 'http://' + location.hostname + ':1314/education/api'
+
+block body
+    helpdesk-app
+    script(src="js/main.js", type="text/javascript")
