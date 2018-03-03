@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
         console.log('hi');
         this.httpService.get("/getMainText").toPromise().then(
             result => {
-                this.text = result.json().text
+                this.text = result.json()
             },
             error => {
                 this.text = error.toString()

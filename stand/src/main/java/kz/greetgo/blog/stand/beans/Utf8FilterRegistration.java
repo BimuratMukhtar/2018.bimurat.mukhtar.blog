@@ -30,6 +30,9 @@ public class Utf8FilterRegistration implements WebAppContextRegistration, Filter
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        chain.doFilter(request, response);
         if (request instanceof HttpServletRequest) {
             String url = ((HttpServletRequest)request).getRequestURL().toString();
             String queryString = ((HttpServletRequest)request).getQueryString();
