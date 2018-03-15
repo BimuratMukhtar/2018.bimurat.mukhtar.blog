@@ -51,7 +51,6 @@ public class CrossOriginFilterRegistration implements WebAppContextRegistration,
       response.setStatus(200);
       return;
     }
-    printRequestInfo(request);
     filterChain.doFilter(request, response);
   }
 

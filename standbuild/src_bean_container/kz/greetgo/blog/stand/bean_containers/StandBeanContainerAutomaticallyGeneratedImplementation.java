@@ -30,6 +30,7 @@ public final class StandBeanContainerAutomaticallyGeneratedImplementation implem
       }
       try {
         kz.greetgo.blog.controller.controller.TestController localValue = new kz.greetgo.blog.controller.controller.TestController();
+        localValue.testRegisterBean = (kz.greetgo.depinject.core.BeanGetter<kz.greetgo.blog.controller.register.TestRegister>)(java.lang.Object)getter_native_TestRegisterImpl_7;
         cachedValue_native_TestController_1.set(localValue);
         return localValue;
       } catch (java.lang.Exception e) {
@@ -76,7 +77,7 @@ public final class StandBeanContainerAutomaticallyGeneratedImplementation implem
       }
       try {
         kz.greetgo.blog.stand.beans.JettyControllerRegistration localValue = new kz.greetgo.blog.stand.beans.JettyControllerRegistration();
-        localValue.controllerList = (kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.controller.utils.Controller>>)(java.lang.Object)getter_ref_list_Controller_7;
+        localValue.controllerList = (kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.controller.utils.Controller>>)(java.lang.Object)getter_ref_list_Controller_8;
         localValue.view = (kz.greetgo.depinject.core.BeanGetter<kz.greetgo.mvc.interfaces.Views>)(java.lang.Object)getter_native_StandBlogViews_4;
         cachedValue_native_JettyControllerRegistration_3.set(localValue);
         return localValue;
@@ -124,7 +125,7 @@ public final class StandBeanContainerAutomaticallyGeneratedImplementation implem
       }
       try {
         kz.greetgo.blog.stand.beans.StandServer localValue = new kz.greetgo.blog.stand.beans.StandServer();
-        localValue.webAppContextRegistrations = (kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.stand.utils.WebAppContextRegistration>>)(java.lang.Object)getter_ref_list_WebAppContextRegistration_8;
+        localValue.webAppContextRegistrations = (kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.stand.utils.WebAppContextRegistration>>)(java.lang.Object)getter_ref_list_WebAppContextRegistration_9;
         localValue.afterInject();
         cachedValue_native_StandServer_5.set(localValue);
         return localValue;
@@ -158,19 +159,42 @@ public final class StandBeanContainerAutomaticallyGeneratedImplementation implem
     }
   }
 
+  private final java.util.concurrent.atomic.AtomicReference<kz.greetgo.blog.stand.register_impl.TestRegisterImpl> cachedValue_native_TestRegisterImpl_7 = new java.util.concurrent.atomic.AtomicReference<>(null);
+  private final kz.greetgo.depinject.core.BeanGetter<kz.greetgo.blog.stand.register_impl.TestRegisterImpl> getter_native_TestRegisterImpl_7 = this::get_native_TestRegisterImpl_7;
+  private kz.greetgo.blog.stand.register_impl.TestRegisterImpl get_native_TestRegisterImpl_7 () {
+    {
+      kz.greetgo.blog.stand.register_impl.TestRegisterImpl x = cachedValue_native_TestRegisterImpl_7.get();
+      if (x != null) return x;
+    }
+    synchronized (forSynchronizedBlocks) {
+      {
+        kz.greetgo.blog.stand.register_impl.TestRegisterImpl x = cachedValue_native_TestRegisterImpl_7.get();
+        if (x != null) return x;
+      }
+      try {
+        kz.greetgo.blog.stand.register_impl.TestRegisterImpl localValue = new kz.greetgo.blog.stand.register_impl.TestRegisterImpl();
+        cachedValue_native_TestRegisterImpl_7.set(localValue);
+        return localValue;
+      } catch (java.lang.Exception e) {
+        if (e instanceof java.lang.RuntimeException) throw (java.lang.RuntimeException) e;
+        throw new java.lang.RuntimeException(e);
+      }
+    }
+  }
+
   //
   // Bean references
   //
 
-  private final kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.controller.utils.Controller>> getter_ref_list_Controller_7 = this::get_ref_list_Controller_7;
-  private java.util.List<kz.greetgo.blog.controller.utils.Controller> get_ref_list_Controller_7() {
+  private final kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.controller.utils.Controller>> getter_ref_list_Controller_8 = this::get_ref_list_Controller_8;
+  private java.util.List<kz.greetgo.blog.controller.utils.Controller> get_ref_list_Controller_8() {
     java.util.List<kz.greetgo.blog.controller.utils.Controller> list = new java.util.ArrayList<>();
     list.add(getter_native_TestController_1.get());
     return list;
   }
 
-  private final kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.stand.utils.WebAppContextRegistration>> getter_ref_list_WebAppContextRegistration_8 = this::get_ref_list_WebAppContextRegistration_8;
-  private java.util.List<kz.greetgo.blog.stand.utils.WebAppContextRegistration> get_ref_list_WebAppContextRegistration_8() {
+  private final kz.greetgo.depinject.core.BeanGetter<java.util.List<kz.greetgo.blog.stand.utils.WebAppContextRegistration>> getter_ref_list_WebAppContextRegistration_9 = this::get_ref_list_WebAppContextRegistration_9;
+  private java.util.List<kz.greetgo.blog.stand.utils.WebAppContextRegistration> get_ref_list_WebAppContextRegistration_9() {
     java.util.List<kz.greetgo.blog.stand.utils.WebAppContextRegistration> list = new java.util.ArrayList<>();
     list.add(getter_native_CrossOriginFilterRegistration_2.get());
     list.add(getter_native_JettyControllerRegistration_3.get());
