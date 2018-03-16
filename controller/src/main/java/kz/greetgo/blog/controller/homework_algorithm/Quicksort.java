@@ -29,9 +29,7 @@ public class Quicksort {
             }
             // If the current value from the right list is larger than the pivot
             // element then get the next element from the right list
-            while (numbers[j] > pivot) {
-                j--;
-            }
+
 
             // If we have found a value in the left list which is larger than
             // the pivot element and if we have found a value in the right list
@@ -47,8 +45,7 @@ public class Quicksort {
         // Recursion
         if (low < j)
             quicksort(low, j);
-        if (i < high)
-            quicksort(i, high);
+
     }
 
     private void exchange(int i, int j) {
