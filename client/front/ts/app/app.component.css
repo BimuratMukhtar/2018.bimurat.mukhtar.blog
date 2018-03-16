@@ -1127,3 +1127,8 @@ nav.horizontal ul li {
     margin: 1em;
   }
 }
+
+.error_login{
+  color: red;
+  margin: 20px;
+}
