@@ -26,14 +26,14 @@ export class AppComponent implements OnInit{
     }
 
     loginFunc(): void{
-        this.httpService.post("/getUsers", {
+        this.httpService.post("/loginUser", {
             login: this.login,
             password: this.password
         }).toPromise().then(
             result => {
                 let user_name = result.json()
-                if(user_name === "failed"){
-                    this.error = "Email or Password incorrect"
+                if(user_name === "Invalid UserName or Password"){
+                    this.error = user_name
                 }else{
                     this.error = null;
                     this.text = user_name

@@ -17,7 +17,12 @@ public class TestLoginImpl implements TestLogin{
     };
 
     @Override
-    public List<User> getUsers() {
-        return Arrays.asList(users);
+    public String loginUser(String email, String password) {
+        for (User user : users){
+            if(user.login.equals(email) && user.password.equals(password)){
+                return user.name;
+            }
+        }
+        return "Invalid UserName or Password";
     }
 }
