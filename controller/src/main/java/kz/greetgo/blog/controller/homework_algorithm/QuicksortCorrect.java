@@ -1,7 +1,6 @@
 package kz.greetgo.blog.controller.homework_algorithm;
 
-
-public class Quicksort {
+public class QuicksortCorrect {
     private int[] numbers;
     private int number;
 
@@ -40,13 +39,15 @@ public class Quicksort {
             // As we are done we can increase i and j
             if (i <= j) {
                 exchange(i, j);
+                i++;
+                j--;
             }
         }
         // Recursion
         if (low < j)
-            quicksort(low, j - 1);
+            quicksort(low, j);
         if (i < high)
-            quicksort(j + 1, high);
+            quicksort(i, high);
     }
 
     private void exchange(int i, int j) {

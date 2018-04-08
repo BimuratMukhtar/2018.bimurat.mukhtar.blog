@@ -3,6 +3,7 @@ package kz.greetgo.blog.controller.homework_algorithm;
 import java.util.Arrays;
 import java.util.Random;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -53,6 +54,18 @@ public class QuicksortTest {
             fail("Should not happen");
         }
         printResult(test);
+    }
+
+    @Test
+    public void RasulTest()
+    {
+        int[] test = {1,3,2,4};
+        int[] expectetion = {1,2,3,4};
+
+        Quicksort sort = new Quicksort();
+        sort.sort(test);
+
+        Assert.assertArrayEquals(test,expectetion);
     }
 
     @Test
