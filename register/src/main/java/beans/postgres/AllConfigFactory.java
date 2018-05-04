@@ -8,6 +8,7 @@ import util.App;
 @Bean
 public class AllConfigFactory extends HotConfigFactory {
 
+    @Bean
     public DbConfig createDbConfig(){
         return createConfig(DbConfig.class);
     }
