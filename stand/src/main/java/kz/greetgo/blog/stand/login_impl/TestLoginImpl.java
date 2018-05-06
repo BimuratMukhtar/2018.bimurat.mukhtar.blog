@@ -4,10 +4,6 @@ import kz.greetgo.blog.controller.login.TestLogin;
 import kz.greetgo.blog.controller.model.User;
 import kz.greetgo.depinject.core.Bean;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 @Bean
 public class TestLoginImpl implements TestLogin{
 

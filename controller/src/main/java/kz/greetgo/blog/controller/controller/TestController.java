@@ -13,7 +13,7 @@ import kz.greetgo.mvc.annotations.ToJson;
 public class TestController implements Controller {
 
     public BeanGetter<TestRegister> testRegisterBean;
-//    public BeanGetter<TestLogin> testLoginBean;
+    public BeanGetter<TestLogin> testLoginBean;
 
     @ToJson
     @Mapping("/getMainText")
@@ -21,10 +21,9 @@ public class TestController implements Controller {
         return testRegisterBean.get().getText();
     }
 
-//    @ToJson
-//    @Mapping("/loginUser")
-//    public String getUsers(@Par("login") String login, @Par("password") String password){
-//
-//        return testLoginBean.get().loginUser(login, password);
-//    }
+    @ToJson
+    @Mapping("/loginUser")
+    public String getUsers(@Par("login") String login, @Par("password") String password){
+        return testLoginBean.get().loginUser(login, password);
+    }
 }
