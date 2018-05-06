@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const gulpLog = require('gulplog');
 const notifier = require('node-notifier');
 const browserSync = require('browser-sync');
+const rename = require('gulp-rename');
 
 let isWatch = true;
 
@@ -124,3 +125,24 @@ gulp.task('start', gulp.series(
     }
 ));
 
+gulp.task('pug_main', function () {
+    return gulp.src("front/pug/index_main.pug").pipe(pug({pretty: true}))
+        .on("error", console.log)
+        .pipe(rename(function (path) {
+            ['_main'].forEach(e => {
+                if (path.basename.endsWith(e)) {
+                path.basename = path.basename.slice(0, -e.length);
+            }
+        });
+        }))
+        .pipe(gulp.dest(outDir()));
+});
+
+gulp.task('assets_main', gulp.series('less', 'pug_main'));
+
+gulp.task('build', gulp.series(
+    'clean', 'copy', function (callback) {
+        isWatch = false;
+        callback();
+    }, "webpack", "assets_main"
+));
