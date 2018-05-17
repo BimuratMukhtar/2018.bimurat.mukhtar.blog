@@ -14,16 +14,20 @@ export class SignupComponent{
     email: string;
     fullName: string;
     password: string;
-    response: Observable<Response>;
+    response: Observable<Response|{}>;
 
     constructor(private httpService: HttpService){}
 
     onClickSignup(): void{
-        console.log(this.email + " " + this.password + " " + this.fullName);
-        this.response = new LoadingWrapper(this.httpService.post("/auth", {
+        this.response = new LoadingWrapper(this.httpService.post("/register", {
             fullName : this.fullName,
             email : this.email,
             password: this.password
-        })).data$
+        })).data$;
+        this.response.subscribe(token => {
+            console.log(token);
+        })
     }
+
+
 }

@@ -3,13 +3,13 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-  <changeSet author="mukhtar" id="create-table-test_table">
+  <changeSet author="mukhtar" id="create-table-users">
     <sql endDelimiter=";;"><![CDATA[
       create table users (
-        text varchar(255)
+        email varchar(255),
+        password varchar(255),
+        fullName varchar(255)
       );;
-
-      insert into users(text) values ('Hello World from server');;
     ]]></sql>
   </changeSet>
 

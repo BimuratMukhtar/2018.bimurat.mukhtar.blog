@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, TemplateRef, Input } from '@angular/core';
+import { Component, ViewChild, TemplateRef, Input } from '@angular/core';
 import { NgIfContext } from '@angular/common';
-import { LoadingWrapper } from './loading-wrapper';
+import { LoadingWrapper } from './LoadingErrorWrapper';
 
 @Component({
     selector: 'loading-or-error',

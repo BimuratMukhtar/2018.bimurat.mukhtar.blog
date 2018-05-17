@@ -1,29 +1,23 @@
 package impl;
 
 import dao.AuthDao;
-import dao.postgres.AuthDaoPostgres;
-import kz.greetgo.blog.controller.register.TestRegister;
+import kz.greetgo.blog.controller.register.AuthRegister;
 import kz.greetgo.depinject.core.Bean;
 import kz.greetgo.depinject.core.BeanGetter;
 
 
 @Bean
-public class AuthRegisterImpl implements TestRegister {
+public class AuthRegisterImpl implements AuthRegister {
 
     public BeanGetter<AuthDao> registerDao;
 
-//    @Override
-//    public String getAuthText() {
-//        return registerDao.get().getAuthText();
-//    }
-//
-//    @Override
-//    public void insertUser(String email, String password) {
-//        registerDao.get().insertUser(email, password);
-//    }
+    @Override
+    public String loginUser(String email, String password) {
+        return registerDao.get().getAuthText();
+    }
 
     @Override
-    public String getText() {
-        return registerDao.get().getAuthText();
+    public String registerUser(String email, String password, String fullName) {
+        return registerDao.get().insertUser(email, password, fullName);
     }
 }

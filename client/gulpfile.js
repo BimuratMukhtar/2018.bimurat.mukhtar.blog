@@ -47,21 +47,19 @@ gulp.task('webpack', function (callback) {
         watch: isWatch,
         devtool: 'cheap-module-inline-source-map',
         module: {
-            loaders: [{
+            rules: [{
                 test: /\.ts$/,
                 include: path.resolve(__dirname, 'front', 'ts'),
-                loader: ['ts-loader'],
+                use: ['ts-loader'],
             }, {
                 test: /\.(html|css)$/,
-                loader : 'raw-loader',
+                use : 'raw-loader',
             }],
         },
         resolve: {
             extensions: [".ts", ".js"]
         },
-        plugins: [
-            new webpack.NoEmitOnErrorsPlugin() // otherwise error still gives a file
-        ]
+        mode: 'production'
     };
 
     webpack(options, function (err, stats) {
