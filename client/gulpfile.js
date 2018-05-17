@@ -20,7 +20,8 @@ gulp.task('clean', function (){
 });
 
 gulp.task('less', function(){
-    return gulp.src("front/less/style.less").pipe(less()).pipe(gulp.dest(path.resolve(outDir(), 'css')))
+    return gulp.src("front/less/*.less").pipe(less()).on('error', console.log)
+        .pipe(gulp.dest(path.resolve(outDir(), 'css')))
 });
 
 gulp.task('copy-images',function () {

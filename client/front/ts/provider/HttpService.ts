@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Headers, Http, RequestOptionsArgs, Response} from "@angular/http";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs/internal/Observable";
+
 
 class OptionsBuilder {
     private appendingHeaders: { [key: string]: string }[] = [];

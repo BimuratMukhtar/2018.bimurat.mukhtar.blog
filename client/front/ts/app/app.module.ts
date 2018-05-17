@@ -5,6 +5,8 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpService} from "../provider/HttpService";
 import {HttpModule} from "@angular/http";
 import {FormsModule} from '@angular/forms';
+import {LoginComponent} from "./login/login.component";
+import {SignupComponent} from "./signup/signup.component";
 
 @NgModule({
     imports:[
@@ -12,7 +14,11 @@ import {FormsModule} from '@angular/forms';
         FormsModule,
         HttpModule
     ],
-    declarations:[AppComponent],
+    declarations:[
+        AppComponent,
+        LoginComponent,
+        SignupComponent
+    ],
     bootstrap:[AppComponent],
     entryComponents:[AppComponent],
     providers:[HttpService]
