@@ -1,12 +1,10 @@
 import {Component} from "@angular/core";
-import {HttpService} from "../../provider/HttpService";
-import {LoadingWrapper} from "../error/LoadingErrorWrapper";
-import {Observable} from "rxjs/internal/Observable";
-import {Response} from "@angular/http";
+import {AuthService} from "../../provider/auth.service";
+import {User} from "../../models/models";
 
 
 @Component({
-    selector: "signup_page",
+    selector: "signup-page",
     template: require("./signup.component.html"),
     styles: [require('./signup.component.css')]
 })
@@ -14,17 +12,11 @@ export class SignupComponent{
     email: string;
     fullName: string;
     password: string;
-    response: Observable<Response|{}>;
 
-    constructor(private httpService: HttpService){}
+    constructor(private userService: AuthService){}
 
-    onClickSignup(): void{
-        this.response = new LoadingWrapper(this.httpService.post("/register", {
-            fullName : this.fullName,
-            email : this.email,
-            password: this.password
-        })).data$;
-        this.response.subscribe(token => {
+    signup(): void{
+        this.userService.registerUser(new User(this.email, this.fullName, this.password)).subscribe(token => {
             console.log(token);
         })
     }

@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
-import {HttpService} from "../../provider/HttpService";
+import {AuthService} from "../../provider/auth.service";
+import {User} from "../../models/models";
 
 
 
@@ -11,21 +12,12 @@ import {HttpService} from "../../provider/HttpService";
 export class LoginComponent {
     private email: string;
     private password: string;
-    private error;
 
-    constructor(private httpService: HttpService){}
+    constructor(private authService: AuthService){}
 
-    loginFunc(): void{
-        this.httpService.post("/loginUser", {
-            login: this.email,
-            password: this.password
-        }).toPromise().then(
-            result => {
-                console.log(result.toString())
-            },
-            error => {
-                this.error = error.toString()
-            }
-        )
+    login(): void{
+        this.authService.loginUser(new User(this.email, this.password)).subscribe(token => {
+            console.log(token);
+        })
     }
 }
