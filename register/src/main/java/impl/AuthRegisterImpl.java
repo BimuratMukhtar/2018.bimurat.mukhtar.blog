@@ -1,6 +1,8 @@
 package impl;
 
 import dao.AuthDao;
+import kz.greetgo.blog.controller.errors.RestError;
+import kz.greetgo.blog.controller.model.User;
 import kz.greetgo.blog.controller.register.AuthRegister;
 import kz.greetgo.depinject.core.Bean;
 import kz.greetgo.depinject.core.BeanGetter;
@@ -12,8 +14,12 @@ public class AuthRegisterImpl implements AuthRegister {
     public BeanGetter<AuthDao> registerDao;
 
     @Override
-    public String loginUser(String email, String password) {
-        return registerDao.get().getAuthText();
+    public User loginUser(String email, String password) {
+        User user = registerDao.get().getUser(email, password);
+        if(user == null){
+            throw new RestError(404);
+        }
+        return user;
     }
 
     @Override

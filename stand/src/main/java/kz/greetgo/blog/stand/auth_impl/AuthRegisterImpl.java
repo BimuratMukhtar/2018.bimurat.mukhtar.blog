@@ -16,7 +16,7 @@ public class AuthRegisterImpl implements AuthRegister {
     public String loginUser(String email, String password) {
         for (User user : users){
             if(user.login.equals(email) && user.password.equals(password)){
-                return user.name;
+                return user.fullName;
             }
         }
         return "Invalid UserName or Password";

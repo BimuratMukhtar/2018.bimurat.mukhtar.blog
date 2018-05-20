@@ -137,7 +137,7 @@ gulp.task('pug_main', function () {
         .pipe(gulp.dest(outDir()));
 });
 
-gulp.task('assets_main', gulp.series('less', 'pug_main'));
+gulp.task('assets_main', gulp.series('less', 'pug', 'pug_main'));
 
 gulp.task('build', gulp.series(
     'clean', 'copy', function (callback) {

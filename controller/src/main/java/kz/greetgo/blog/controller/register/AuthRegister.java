@@ -1,6 +1,8 @@
 package kz.greetgo.blog.controller.register;
 
+import kz.greetgo.blog.controller.model.User;
+
 public interface AuthRegister {
-    public String loginUser(String email, String password);
-    public String registerUser(String email, String password, String fullName);
+    User loginUser(String email, String password);
+    String registerUser(String email, String password, String fullName);
 }

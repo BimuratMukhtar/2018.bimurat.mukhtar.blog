@@ -3,14 +3,31 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-  <changeSet author="mukhtar" id="create-table-users">
-    <sql endDelimiter=";;"><![CDATA[
-      create table users (
-        email varchar(255),
-        password varchar(255),
-        fullName varchar(255)
-      );;
-    ]]></sql>
-  </changeSet>
+    <changeSet author="mukhtar" id="create-tables">
+        <sql endDelimiter=";;"><![CDATA[
+        create table users (
+          id       serial primary key,
+          email    varchar(255),
+          password varchar(255),
+          fullName varchar(255)
+        );;
+create table blogs (
+  id          serial primary key,
+  title       varchar(255),
+  authorId    numeric,
+  craetedDate varchar(40) default to_char(current_date, 'DD Mon YYYY'),
+  content     text,
+  imageUrl    varchar(255) null
+);;
+create table comments (
+  id          serial primary key,
+  content     text,
+  authorId    numeric,
+  blogId      numeric,
+  craetedDate varchar(40) default to_char(current_date, 'DD Mon YYYY')
+);;
+    ]]>
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>

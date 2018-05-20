@@ -57,7 +57,7 @@
                  <cite>- <b>{{comment.author}}</b></cite>
                </li>
               </ul>
-              <form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment(post)" novalidate>
+              <form fullName="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment(post)" novalidate>
               
                 
                 <h4>Add Comment</h4>
@@ -73,7 +73,7 @@
         <div class="post" ng-show="blog.isSelected('new')">
           <h2>Add New Post</h2>
           
-          <form name="postForm" ng-submit=" blog.addPost()" novalidate>
+          <form fullName="postForm" ng-submit=" blog.addPost()" novalidate>
                   <h4>Title</h4>
                   <input type="text" ng-model="blog.post.title"/>
                   <h4>Body</h4>
