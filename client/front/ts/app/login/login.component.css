@@ -205,6 +205,22 @@ select option {
 .col-third:last-of-type {
     padding-right: 0;
 }
+
+.sign_buttons{
+    background: #7ed321;
+    color: #fff;
+    width: 100%;
+    padding: 1em;
+    line-height: 1.4;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    -webkit-transition: 0.35s ease-in-out;
+    -moz-transition: 0.35s ease-in-out;
+    -o-transition: 0.35s ease-in-out;
+    transition: 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
 @media only screen and (max-width: 540px) {
     .col-half {
         width: 100%;

@@ -1,2 +1,12 @@
+<div class="topnav">
+    <a class="active" href="#home">All Blogs</a>
+    <a href="#contact" *ngIf="isRegistered">Add Blog</a>
+    <a href="#about" *ngIf="isRegistered">My Blogs</a>
+
+    <div class="topnav-right" *ngIf="!isRegistered">
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Register</a>
+    </div>
+</div>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

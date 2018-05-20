@@ -9,22 +9,34 @@ import {MessageService} from './message.service';
 import {Blog, User} from "../models/models";
 
 const httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
 };
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-    private authUrl = 'auth/';  // URL to web api
+    private token = "";
 
     constructor(
         private http: HttpClient,
         private messageService: MessageService) {
     }
 
+    private url(): string {
+        return (<any>window).urlPrefix;
+    }
+
+    isSigned(): boolean{
+        return this.token !== "";
+    }
+
+    assignToken(token: string){
+        this.token = token
+    }
+
     /** POST: add a new user to the server */
     registerUser(user: User): Observable<any> {
-        return this.http.post<Blog>(this.authUrl+"register", user, httpOptions).pipe(
+        return this.http.post<Blog>(this.url()+"register", user, httpOptions).pipe(
             tap((userMiddle: User) => this.log(`added blog w/ id=${userMiddle.id}`)),
             catchError(this.handleError<User>('addblog'))
         );
@@ -32,7 +44,7 @@ export class AuthService {
 
     /** POST: add a new user to the server */
     loginUser(user: User): Observable<any> {
-        return this.http.post<User>(this.authUrl+"login", user, httpOptions).pipe(
+        return this.http.post<User>(this.url()+"login", user, httpOptions).pipe(
             tap((userMiddle: User) => this.log(`added blog w/ id=${userMiddle.id}`)),
             catchError(this.handleError<User>('addblog'))
         );

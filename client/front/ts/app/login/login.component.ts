@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {AuthService} from "../../provider/auth.service";
 import {User} from "../../models/models";
-
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,11 +13,13 @@ export class LoginComponent {
     private email: string;
     private password: string;
 
-    constructor(private authService: AuthService){}
+    constructor(private router: Router, private authService: AuthService){}
 
     login(): void{
         this.authService.loginUser(new User(this.email, this.password)).subscribe(token => {
-            console.log(token);
+            this.authService.assignToken(token)
+            console.log(token)
+            this.router.navigate([''])
         })
     }
 }

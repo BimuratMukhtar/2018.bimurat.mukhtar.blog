@@ -59,7 +59,7 @@ gulp.task('webpack', function (callback) {
         resolve: {
             extensions: [".ts", ".js"]
         },
-        mode: 'production'
+        mode: 'development'
     };
 
     webpack(options, function (err, stats) {
