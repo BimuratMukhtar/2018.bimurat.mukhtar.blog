@@ -54,7 +54,7 @@ gulp.task('webpack', function (callback) {
             }, {
                 test: /\.(html|css)$/,
                 use : 'raw-loader',
-            }],
+            }, ],
         },
         resolve: {
             extensions: [".ts", ".js"]
@@ -137,7 +137,7 @@ gulp.task('pug_main', function () {
         .pipe(gulp.dest(outDir()));
 });
 
-gulp.task('assets_main', gulp.series('less', 'pug', 'pug_main'));
+gulp.task('assets_main', gulp.series('less', 'pug'));
 
 gulp.task('build', gulp.series(
     'clean', 'copy', function (callback) {
